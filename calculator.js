@@ -35,6 +35,13 @@ function operate(operator, num1, num2) {
 function updateDisplayAndReturnVar(variable) {
     // If the variable is "Clear", set the p element to have no text
     // Else, add the variable to the p element
+    let display = document.querySelector('.display');
+    if (variable === 'Clear') {
+        display.textContent = '';
+    } else {
+        display.textContent += variable;
+    }
+
 }
 
 // Need to return the value and also update the display
@@ -45,6 +52,6 @@ let buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         // Call a seperate function to update display and return value
-        console.log(`Clicked button: ${button.innerText}`)
+        updateDisplayAndReturnVar(button.textContent);
     })
 })
